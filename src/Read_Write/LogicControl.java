@@ -12,7 +12,7 @@ public class LogicControl {
     }
     public int RowCount(List<String> texts){
         int totalRow;
-        totalRow = texts.size();
+        totalRow = texts.size();  // Total index
         return totalRow;
     }
     public int CharacterCount(List<String> texts){

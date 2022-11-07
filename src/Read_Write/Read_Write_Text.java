@@ -6,7 +6,7 @@ public class Read_Write_Text {
     public static void main(String[] args) {
         System.out.println("Enter a text. ('stop to exit')");
         Scanner scanObj = new Scanner(System.in);  // Create a Scanner object
-        LogicControl logicControl  = new LogicControl();
+        LogicControl logicControl  = new LogicControl(); // Create LogicControl object
         int totalRow = 0;
         int totalCharacter = 0;
         int totalWord = 0;
