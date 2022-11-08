@@ -2,20 +2,21 @@ package Read_Write;
 
 import java.util.List;
 public class LogicControl {
-    public boolean StopOrContinue(String text){
-        if(text.equalsIgnoreCase("stop")){
-            return true;
-        }
-        else {
-            return false;
-        }
+    private final List<String> texts;
+
+    public LogicControl(List<String> Texts){  //Constructor with parameter
+        texts = Texts;
     }
-    public int RowCount(List<String> texts){
+
+    // Returns total row
+    public int RowCount(){
         int totalRow;
-        totalRow = texts.size();  // Total index
+        totalRow = texts.size();
         return totalRow;
     }
-    public int CharacterCount(List<String> texts){
+
+    // Returns total character
+    public int CharacterCount(){
         int count = 0;
         for (String word : texts) {
             for(int i = 0; i < word.length(); i++) {
@@ -25,19 +26,23 @@ public class LogicControl {
         }
         return count;
     }
-    public int WordCount(List<String> texts){
+
+    // Returns total word
+    public int WordCount(){
         int totalWord = 0;
         for (String text : texts) {
-            if (text != null || !text.isEmpty()) {
+            if (text != null) {
                 String[] words = text.trim().split("\\s+");
-                for (String word: words) {
+                for(int i = 0; i < words.length; i++) {
                     totalWord++;
                 }
             }
         }
         return totalWord;
     }
-    public String LongestWord(List<String> texts){
+
+    // Returns first longest word
+    public String LongestWord(){
         String longestWord = null;
         for (String text : texts) {
             String[] words = text.trim().split("\\s+");

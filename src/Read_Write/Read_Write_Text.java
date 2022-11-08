@@ -6,30 +6,28 @@ public class Read_Write_Text {
     public static void main(String[] args) {
         System.out.println("Enter a text. ('stop to exit')");
         Scanner scanObj = new Scanner(System.in);  // Create a Scanner object
-        LogicControl logicControl  = new LogicControl(); // Create LogicControl object
-        int totalRow = 0;
-        int totalCharacter = 0;
-        int totalWord = 0;
-        boolean isStop = false;
+        int totalRow;
+        int totalCharacter;
+        int totalWord;
         String longestWord;
-        List<String> texts=new ArrayList<String>();
+        List<String> texts = new ArrayList<>();
 
-        while(true) {
+        while (true) {
             String text = scanObj.nextLine();  // Read user input
-            isStop = logicControl.StopOrContinue(text);
-            if(isStop) {
+            if(text.equalsIgnoreCase("stop")) {
+                LogicControl logicControl = new LogicControl(texts); // Create LogicControl object
                 System.out.println("Quiting the program...");
-                totalRow = logicControl.RowCount(texts);
+                totalRow = logicControl.RowCount();
                 System.out.println("Total row: " + totalRow);  // Show total result
-                totalCharacter = logicControl.CharacterCount(texts);
+                totalCharacter = logicControl.CharacterCount();
                 System.out.println("Total character: " + totalCharacter);  // Show total result
-                totalWord = logicControl.WordCount(texts);
+                totalWord = logicControl.WordCount();
                 System.out.println("Total word: " + totalWord);  // Show total result
-                longestWord =  logicControl.LongestWord(texts);
-                System.out.println("Longest word: " + longestWord);  // Show total result
-                break;  // Out from the loop
+                longestWord = logicControl.LongestWord();
+                System.out.println("First longest word: " + longestWord);  // Show total result
+                break;
             }
-            else{
+            else {
                 texts.add(text);
             }
         }

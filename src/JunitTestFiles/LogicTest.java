@@ -4,18 +4,17 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LogicTest {
-    List<String> texts = new ArrayList<String>(Arrays.asList("Programming", "is fun"));
-    LogicControl logicControl = new LogicControl();
+    List<String> texts = new ArrayList<>(Arrays.asList("Programming", "is fun"));
+    LogicControl logicControl = new LogicControl(texts);
     @Test
     public void testRowCount() {
         //Arrange
         int expected = 2;
         //Act
-        int actual = logicControl.RowCount(texts);
+        int actual = logicControl.RowCount();
         //Assert
         assertEquals(expected,actual);
     }
@@ -25,7 +24,7 @@ public class LogicTest {
         //Arrange
         int expected = 16;
         //Act
-        int actual = logicControl.CharacterCount(texts);
+        int actual = logicControl.CharacterCount();
         //Assert
         assertEquals(expected,actual);
     }
@@ -35,7 +34,7 @@ public class LogicTest {
         //Arrange
         int expected = 3;
         //Act
-        int actual = logicControl.WordCount(texts);
+        int actual = logicControl.WordCount();
         //Assert
         assertEquals(expected,actual);
     }
@@ -45,17 +44,7 @@ public class LogicTest {
         //Arrange
         String expected = "Programming";
         //Act
-        String actual = logicControl.LongestWord(texts);
-        //Assert
-        assertEquals(expected,actual);
-    }
-
-    @Test
-    public void testStopOrContinue() {
-        //Arrange
-        Boolean expected = true;
-        //Act
-        boolean actual = logicControl.StopOrContinue("stop");
+        String actual = logicControl.LongestWord();
         //Assert
         assertEquals(expected,actual);
     }
